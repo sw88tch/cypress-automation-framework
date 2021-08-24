@@ -1,7 +1,7 @@
 {
   "name": "cypress-automation-framework",
   "version": "1.0.0",
-  "description": "Cypress Automation Framework",
+  "description": "",
   "main": "index.js",
   "scripts": {
     "triggerAllTests-headless": "npx cypress run",
@@ -12,6 +12,7 @@
     "triggerAllTests-webdriveruni-dashboard": "npx cypress run --spec cypress/integration/webdriver-uni/* --record --key fd44cf85-ece9-448c-a94e-58ce97eed05b --parallel --browser chrome --headed",
     "triggerAllTests-autostore": "npx cypress run --spec cypress/integration/auto-t-store/*",
     "triggerAllTests-autostore-dashboard": "npx cypress run --spec cypress/integration/auto-t-store/* --record --key fd44cf85-ece9-448c-a94e-58ce97eed05b --parallel --browser chrome --headed",
+    "triggerAllTests-cucumberTests": "npx cypress run --spec cypress/integration/webdriver-uni/fearures/*.feature --browser chrome",
     "junit-merge": "npx junit-merge -d cypress/results/junit -o cypress/results/junit/results.xml",
     "delete-junit-report": "rm -rf cypress/results/junit/results.xml",
     "delete-results": "rm -rf cypress/results/* || true",
@@ -21,18 +22,21 @@
     "triggerAllTests-staging": "npx cypress run --env configFile=staging",
     "cypress-multi-browser": "npm run triggerAllTests-autostore -- --browser electron --headed & npm run triggerAllTests-autostore -- --browser edge --headed"
   },
-  "author": "Gianni Bruno",
+  "author": "",
   "license": "ISC",
   "devDependencies": {
-    "cypress": "^8.3.0",
-    "cypress-cucumber-preprocessor": "^4.2.0",
-    "cypress-file-upload": "^4.1.1",
-    "cypress-multi-reporters": "^1.4.0",
+    "cypress": "^6.5.0",
+	"cypress-cucumber-preprocessor": "^4.0.1",
+    "cypress-file-upload": "^4.0.6",
+    "cypress-multi-reporters": "^1.2.4",
     "cypress-xpath": "^1.4.0",
-    "mocha": "^8.0.1",
-    "mocha-junit-reporter": "^2.0.0",
-    "mochawesome": "^6.1.1",
-    "mochawesome-merge": "^4.1.0",
+    "mocha": "^7.1.2",
+    "mocha-junit-reporter": "^1.23.3",
+    "mochawesome": "^6.1.0",
+    "mochawesome-merge": "^4.0.3",
     "mochawesome-report-generator": "^5.1.0"
+  },
+    "cypress-cucumber-preprocessor": {
+    "nonGlobalStepDefinitions": true
   }
 }
